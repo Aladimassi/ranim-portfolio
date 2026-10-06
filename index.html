@@ -98,11 +98,15 @@ h1 span{color:var(--accent-ink)}
 
 .pipe{flex:1 1 340px;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px}
 .pipe-head{display:flex;justify-content:space-between;gap:12px;align-items:center}
-.steps{margin-top:14px;display:flex;flex-direction:column;gap:6px}
-.step{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:12px;min-height:44px;border:1px solid transparent}
+.steps{margin-top:14px;display:flex;flex-direction:column;gap:4px;position:relative}
+/* the rail: one vertical line through every dot */
+.steps::before{content:"";position:absolute;left:20px;top:24px;bottom:24px;width:2px;background:var(--line);border-radius:2px}
+.step{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:12px;min-height:44px;border:1px solid transparent;position:relative}
 .step[aria-pressed="true"]{background:var(--raised);border-color:var(--btn)}
 .step:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.step .n{font-family:var(--f-mono);font-size:12px;color:var(--accent-ink);padding-top:3px}
+.step .n{flex:none;width:14px;height:14px;margin-top:5px;margin-left:-1px;border-radius:50%;background:var(--surface);border:2px solid var(--btn);position:relative;z-index:1;transition:background .2s,border-color .2s}
+.step[aria-pressed="true"] .n{background:var(--accent);border-color:var(--accent)}
+.step[aria-pressed="true"] .t{color:var(--text)}
 .step .t{font-weight:600;color:var(--text);display:block}
 .step .d{font-size:14px;color:var(--muted);display:block}
 .step .w{display:none;margin-top:6px;font-family:var(--f-mono);font-size:12px;color:var(--soft)}
@@ -311,7 +315,7 @@ footer{margin-top:40px;display:flex;flex-wrap:wrap;justify-content:space-between
       </div>
     </div>
     <aside class="pipe" aria-label="How I work">
-      <div class="pipe-head"><span class="label">How I work</span><span class="mono" style="font-size:11.5px;color:var(--faint)">tap a step</span></div>
+      <div class="pipe-head"><span class="label">How I work</span><span style="font-size:13px;color:var(--faint)">Select a step</span></div>
       <div class="steps" id="steps"></div>
     </aside>
   </section>
@@ -511,7 +515,7 @@ footer{margin-top:40px;display:flex;flex-wrap:wrap;justify-content:space-between
   steps.forEach(function(s, i){
     var b = document.createElement('button');
     b.type = 'button'; b.className = 'step'; b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
-    b.innerHTML = '<span class="n">'+s[0]+'</span><span><span class="t">'+s[1]+'</span><span class="d">'+s[2]+'</span><span class="w">→ seen in '+s[3]+'</span></span>';
+    b.innerHTML = '<span class="n" aria-hidden="true"></span><span><span class="t">'+s[1]+'</span><span class="d">'+s[2]+'</span><span class="w">→ seen in '+s[3]+'</span></span>';
     b.addEventListener('click', function(){
       stepsEl.querySelectorAll('.step').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
       b.setAttribute('aria-pressed','true');
