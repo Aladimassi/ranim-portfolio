@@ -4,18 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ranim Nasr — AI &amp; Data Engineering</title>
-<meta name="description" content="Ranim Nasr, final-year AI & Data Engineering student at ENET'Com Sfax, seeking a 2027 PFE internship in France or internationally.">
+<meta name="description" content="Ranim Nasr, final-year AI & Data Engineering student at ENET'Com Sfax. RAG systems, AI agents and explainable medical AI.">
 <meta name="theme-color" content="#0D0F12" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
 <meta property="og:title" content="Ranim Nasr — AI & Data Engineering">
-<meta property="og:description" content="Final-year AI & Data Engineering student seeking a 2027 PFE internship.">
+<meta property="og:description" content="Final-year AI & Data Engineering student. RAG systems, AI agents and explainable medical AI.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://ranim-portfolio-pearl.vercel.app/">
+<meta property="og:image" content="https://ranim-portfolio-pearl.vercel.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://ranim-portfolio-pearl.vercel.app/og.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23C9F25D'/%3E%3Ctext x='32' y='42' font-family='Arial' font-weight='800' font-size='26' text-anchor='middle' fill='%230D0F12'%3ERN%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Geist:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one 1240px column; dark technical ground, lime used only for status, highlights and the contact block */
+/* Layout: one 1240px column; dark technical ground, lime reserved for highlights and the contact block */
 :root{
   --bg:#0D0F12;--header:rgba(13,15,18,.88);--surface:#14171C;--raised:#1E2228;
   --line:#262A31;--text:#EDEAE3;--soft:#C9CDD3;--muted:#9BA1AA;--faint:#7A818C;--btn:#3A3F48;
@@ -43,25 +49,28 @@ a:hover{opacity:.85}
 button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 h1,h2,h3{text-wrap:balance}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .wrap{max-width:1240px;margin:0 auto;padding-inline:24px}
 .mono{font-family:var(--f-mono)}
 .label{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .eyebrow{font-family:var(--f-mono);font-size:13px;color:var(--accent-ink)}
 .h2{margin:20px 0 0;font-family:var(--f-display);font-weight:600;font-size:clamp(32px,4vw,52px);line-height:1.05;letter-spacing:-.03em}
 .section{padding-top:120px}
-.pill{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--btn);font-weight:500;background:transparent;cursor:pointer}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--btn);font-weight:500;background:transparent;cursor:pointer;white-space:nowrap}
 .pill.solid{background:var(--text);color:var(--bg);border-color:var(--text);font-weight:600}
 .pill.lime{background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:600}
-.tag{font-family:var(--f-mono);font-size:12px;padding:5px 10px;border-radius:6px;background:var(--raised);color:var(--soft)}
+.tag{font-family:var(--f-mono);font-size:12px;padding:5px 10px;border-radius:6px;background:var(--raised);color:var(--soft);white-space:nowrap}
 .tags{display:flex;flex-wrap:wrap;gap:8px}
 
 /* header */
 header{position:sticky;top:0;padding-top:env(safe-area-inset-top,0px);z-index:10;background:var(--header);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:12px}
-.brand{display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:12px;min-height:44px}
 .mark{width:36px;height:36px;border-radius:10px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:15px}
 .navlinks{display:flex;align-items:center;gap:2px;flex-wrap:wrap;font-size:15px}
-.navlinks a.l{padding:10px 12px;color:var(--muted)}
+.navlinks a.l{padding:10px 12px;color:var(--muted);border-radius:8px;position:relative}
+.navlinks a.l[aria-current="true"]{color:var(--text)}
+.navlinks a.l[aria-current="true"]::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:2px;background:var(--accent)}
 .icon-btn{width:44px;height:44px;border-radius:999px;border:1px solid var(--btn);background:transparent;display:grid;place-items:center;cursor:pointer;margin-left:6px}
 .menu-btn{display:none}
 .mobile-menu{display:none}
@@ -74,14 +83,15 @@ nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-
 }
 
 /* hero */
-.hero{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-end;padding-block:88px 64px}
+.hero{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-end;padding-block:96px 64px}
 .hero-main{flex:999 1 540px;min-width:0}
-.status{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;font-family:var(--f-mono);font-size:12.5px;color:var(--soft)}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
-h1{margin:28px 0 0;font-family:var(--f-display);font-weight:800;font-size:clamp(64px,11vw,164px);line-height:.88;letter-spacing:-.045em}
+h1{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(64px,11vw,164px);line-height:.88;letter-spacing:-.045em}
 h1 span{color:var(--accent-ink)}
 .lede{margin:32px 0 0;max-width:680px;font-size:clamp(20px,2vw,26px);line-height:1.35;font-weight:500}
-.rot{display:inline-block;margin-top:6px;padding:0 10px;border-radius:8px;background:var(--accent);color:var(--on-accent);font-weight:600;transition:opacity .25s}
+/* every word sits in the same grid cell, so the box is as wide as the longest word and nothing shifts */
+.rot{display:inline-grid;margin-top:6px;vertical-align:top}
+.rot > span{grid-area:1/1;padding:0 10px;border-radius:8px;background:var(--accent);color:var(--on-accent);font-weight:600;justify-self:start;opacity:0;transition:opacity .3s}
+.rot > span.on{opacity:1}
 .sub{margin:16px 0 0;max-width:620px;color:var(--muted)}
 .ctas{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap}
 .ctas .pill{min-height:48px;padding:0 24px}
@@ -100,8 +110,8 @@ h1 span{color:var(--accent-ink)}
 
 /* strip */
 .strip{border-block:1px solid var(--line);background:var(--surface)}
-.strip .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.stat{padding:26px 24px 26px 0}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:24px}
+.stat{padding:26px 0}
 .stat b{display:block;font-family:var(--f-display);font-weight:800;font-size:34px;letter-spacing:-.03em;line-height:1.2}
 .stat b.hl{color:var(--accent-ink)}
 .stat span{font-size:14.5px;color:var(--muted)}
@@ -127,40 +137,50 @@ h1 span{color:var(--accent-ink)}
 .card-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--f-mono);font-size:12.5px;color:var(--muted)}
 .card h3{margin:0;font-family:var(--f-display);font-weight:600;font-size:30px;letter-spacing:-.02em}
 .card ul{margin:0;padding-left:18px;color:var(--soft);display:flex;flex-direction:column;gap:6px}
+.card .tags{margin-top:auto;padding-top:4px}
 
 /* projects */
 .proj-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
 .filters{margin-top:36px;display:flex;flex-wrap:wrap;gap:8px}
-.filter{cursor:pointer;min-height:44px;padding:0 18px;border-radius:999px;font-size:15px;font-weight:500;background:transparent;border:1px solid var(--btn)}
+.filter{cursor:pointer;min-height:44px;padding:0 18px;border-radius:999px;font-size:15px;font-weight:500;background:transparent;border:1px solid var(--btn);white-space:nowrap}
 .filter[aria-pressed="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
 .filter small{font-family:var(--f-mono);font-size:12px;opacity:.7;margin-left:4px}
-.pgrid{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(330px,100%),1fr));gap:20px;align-items:start}
-.proj{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:10px;transition:transform .25s ease,box-shadow .25s ease,border-color .25s}
-.proj:hover{transform:translateY(-4px);box-shadow:0 18px 40px -22px rgba(0,0,0,.5)}
-.proj.open{border-color:var(--accent)}
-.proj .top{display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
-.proj .top .num{color:var(--faint)}
-.proj h3{margin:0;font-family:var(--f-display);font-weight:600;font-size:25px;letter-spacing:-.02em;line-height:1.15}
-.proj p{margin:0;color:var(--soft);font-size:15.5px}
-.proj .tag{font-size:11.5px;padding:4px 9px}
-.toggle{all:unset;box-sizing:border-box;cursor:pointer;margin-top:6px;min-height:44px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:10px;font-weight:600;color:var(--accent-ink)}
-.toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.more{display:flex;flex-direction:column;gap:12px}
-.more p{color:var(--muted);font-size:15px}
-.more .links{display:flex;gap:20px;flex-wrap:wrap;font-weight:600}
-.more .links a{color:var(--accent-ink);min-height:44px;display:inline-flex;align-items:center}
+.feat{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr));gap:20px}
+.feat:empty{display:none}
+.fcard{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.fcard .top{display:flex;justify-content:space-between;gap:12px;font-family:var(--f-mono);font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.fcard .top .star{color:var(--accent-ink)}
+.fcard h3{margin:0;font-family:var(--f-display);font-weight:600;font-size:30px;letter-spacing:-.02em;line-height:1.1}
+.fcard p{margin:0;color:var(--soft)}
+.flow{list-style:none;margin:4px 0 0;padding:16px;border-radius:14px;background:var(--raised);display:flex;flex-wrap:wrap;align-items:center;gap:8px 6px;font-family:var(--f-mono);font-size:12.5px}
+.flow li{display:flex;align-items:center;gap:6px}
+.flow .node{padding:6px 10px;border-radius:8px;background:var(--bg);border:1px solid var(--line);color:var(--text);white-space:nowrap}
+.flow .node.key{border-color:var(--accent);color:var(--accent-ink)}
+.flow .arrow{color:var(--faint)}
+.fcard .links{display:flex;gap:20px;flex-wrap:wrap;font-weight:600;margin-top:auto}
+.fcard .links a,.prow .go{color:var(--accent-ink);min-height:44px;display:inline-flex;align-items:center}
+.plist{margin-top:20px;border-top:1px solid var(--line)}
+.plist:empty{display:none}
+.prow{display:grid;grid-template-columns:44px minmax(0,1.1fr) minmax(0,1.6fr) auto;gap:8px 28px;align-items:center;padding:22px 4px;border-bottom:1px solid var(--line)}
+.prow .num{font-family:var(--f-mono);font-size:13px;color:var(--faint)}
+.prow .ttl{font-family:var(--f-display);font-weight:600;font-size:22px;letter-spacing:-.01em;line-height:1.2}
+.prow .kick{display:block;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.prow .desc{color:var(--muted);font-size:15px}
+.prow .desc .tags{margin-top:8px}
+.prow .tag{font-size:11.5px;padding:4px 9px}
+.prow .go{font-weight:600;white-space:nowrap}
 
 /* skills */
 .skills{margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
-.skills > div{background:var(--bg);padding:26px}
+.skills > div{background:var(--bg);padding:26px;display:flex;flex-direction:column;gap:14px}
 .skills .k{font-family:var(--f-mono);font-size:12px;color:var(--accent-ink);letter-spacing:.06em;text-transform:uppercase}
-.skills p{margin:12px 0 0;color:var(--soft);font-size:15px;line-height:1.9}
+.skills .tag{font-family:var(--f-body);font-size:14px;padding:5px 11px;background:var(--surface);border:1px solid var(--line)}
 
 /* recognition */
-.recs{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));gap:20px}
+.recs{margin-top:32px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .rec{display:flex;flex-direction:column;gap:8px;padding:26px;border:1px solid var(--line);border-radius:16px}
 .rec .src{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
-.rec b{font-family:var(--f-display);font-weight:600;font-size:21px}
+.rec b{font-family:var(--f-display);font-weight:600;font-size:21px;line-height:1.25}
 .rec span.x{font-size:14.5px;color:var(--muted)}
 .rec.big{grid-column:1/-1;background:var(--surface);padding:32px;border-radius:20px}
 .rec.big .src{color:var(--accent-ink)}
@@ -172,14 +192,24 @@ h1 span{color:var(--accent-ink)}
 .cta-main{flex:999 1 460px;min-width:0}
 .cta h2{margin:20px 0 0;font-family:var(--f-display);font-weight:800;font-size:clamp(38px,6vw,84px);line-height:.95;letter-spacing:-.04em}
 .cta p{margin:24px 0 0;max-width:560px;font-size:18px;color:var(--on-accent-soft)}
-.cta-side{flex:1 1 280px;display:flex;flex-direction:column;gap:12px;min-width:0}
-.email-row{display:flex;gap:8px;align-items:stretch}
-.email{flex:1 1 auto;min-width:0;display:flex;align-items:center;min-height:52px;padding:0 20px;border-radius:999px;background:var(--on-accent);color:#EDEAE3;font-family:var(--f-mono);font-size:14px;overflow-wrap:anywhere;user-select:all}
-.cbtn{display:inline-flex;justify-content:center;align-items:center;min-height:52px;padding:0 20px;border-radius:999px;border:1.5px solid var(--on-accent);background:transparent;color:var(--on-accent);font-weight:600;cursor:pointer;white-space:nowrap}
+.cta-side{flex:1 1 320px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.email-row{display:flex;gap:8px}
+.email{flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 20px;border-radius:999px;background:var(--on-accent);color:#EDEAE3;font-family:var(--f-mono);font-size:14px;white-space:nowrap}
+.email svg{flex:none}
+.cbtn{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:52px;padding:0 20px;border-radius:999px;border:1.5px solid var(--on-accent);background:transparent;color:var(--on-accent);font-weight:600;cursor:pointer;white-space:nowrap}
 .cta :focus-visible{outline-color:var(--on-accent)}
-footer{margin-top:40px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
-footer nav{padding:0;gap:24px}
+footer{margin-top:40px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.foot-links{display:flex;flex-wrap:wrap;gap:4px 8px}
+.foot-links a{min-height:44px;display:inline-flex;align-items:center;padding:0 8px}
 
+/* tablets */
+@media (max-width:960px){
+  .strip .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .recs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .prow{grid-template-columns:36px minmax(0,1fr) auto;align-items:start}
+  .prow .desc{grid-column:2/3}
+  .prow .go{grid-column:3;grid-row:1}
+}
 /* phones */
 @media (max-width:600px){
   body{font-size:16px}
@@ -187,45 +217,49 @@ footer nav{padding:0;gap:24px}
   nav{padding-block:10px}
   .brand .mono{display:none}
   .navlinks .pill.solid{padding:0 14px;font-size:14px}
-  .hero{gap:32px;padding-block:44px 40px}
-  .status{font-size:11.5px;line-height:1.4;border-radius:14px;align-items:flex-start}
-  .status .dot{margin-top:4px;flex:none}
-  h1{margin-top:22px;font-size:clamp(58px,19vw,88px)}
+  .hero{gap:32px;padding-block:48px 40px}
+  h1{font-size:clamp(58px,19vw,88px)}
   .lede{margin-top:22px;font-size:20px}
   .ctas{gap:10px}
-  .ctas .pill{flex:1 1 auto;justify-content:center;min-height:48px;padding:0 16px}
+  .ctas .pill{flex:1 1 auto;min-height:48px;padding:0 16px}
   .ctas .pill.lime{flex-basis:100%}
   .pipe{padding:18px;border-radius:16px}
-  .strip .wrap{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px}
+  .strip .wrap{column-gap:16px}
   .stat{padding:18px 0}
   .stat b{font-size:26px}
   .stat span{font-size:13px;display:block;line-height:1.45}
   .section{padding-top:80px}
   .cols{gap:36px}
-  .grid2,.pgrid{margin-top:28px;gap:14px}
-  .card{padding:22px;border-radius:16px}
+  .grid2,.feat{margin-top:24px;gap:14px}
+  .card,.fcard{padding:22px;border-radius:16px}
   .card h3{font-size:25px}
-  .proj-head .pill{width:100%;justify-content:center}
+  .fcard h3{font-size:25px}
+  .flow{padding:12px;font-size:11.5px}
+  .proj-head .pill{width:100%}
   .filters{flex-wrap:nowrap;overflow-x:auto;margin-inline:-18px;padding-inline:18px;padding-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .filters::-webkit-scrollbar{display:none}
   .filter{flex:none}
-  .proj{padding:20px;border-radius:16px}
-  .proj h3{font-size:22px}
-  .skills > div{padding:20px}
-  .recs{gap:14px}
+  .prow{grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;padding:18px 0}
+  .prow .num{display:none}
+  .prow .desc{grid-column:1/-1}
+  .prow .go{grid-column:2;grid-row:1}
+  .prow .ttl{font-size:20px}
+  .skills > div{padding:18px;gap:10px}
+  .skills .tags{gap:6px}
+  .skills .tag{font-size:13px;padding:4px 9px}
+  .recs{grid-template-columns:minmax(0,1fr);gap:12px}
   .rec,.rec.big{padding:20px}
   .rec.big b{font-size:24px}
-  .contact{padding-block:88px 40px}
+  .contact{padding-block:88px 32px}
   .cta{border-radius:22px;gap:28px}
   .cta p{font-size:16px}
-  .email-row{flex-wrap:wrap}
-  .email{flex-basis:100%;justify-content:center;font-size:13.5px}
-  .email-row .cbtn{flex:1 1 100%}
-  footer{flex-direction:column;gap:12px}
+  .email-row{flex-direction:column}
+  .email{font-size:13.5px}
+  footer{flex-direction:column;align-items:flex-start}
+  .foot-links{margin-left:-8px}
 }
-/* touch screens: no hover lift */
-@media (hover:none){.proj:hover{transform:none;box-shadow:none}}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.proj,.rot{transition:none}.proj:hover{transform:none}}
+@media (hover:none){a:hover{opacity:1}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.rot > span{transition:none}}
 </style>
 </head>
 <body>
@@ -240,8 +274,9 @@ footer nav{padding:0;gap:24px}
         <a class="l" href="#projects">Work</a>
         <a class="l" href="#skills">Stack</a>
         <a class="l" href="#contact">Contact</a>
-        <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch theme">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch to light theme">
+          <svg id="icoSun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+          <svg id="icoMoon" hidden width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
         </button>
         <a class="pill solid" style="margin-left:6px" href="https://ranim-nasr-portfolio.vercel.app/CV_PFE.pdf">CV</a>
         <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -262,8 +297,11 @@ footer nav{padding:0;gap:24px}
 <main id="top">
   <section class="wrap hero">
     <div class="hero-main">
-      <h1 style="margin-top:0">Ranim<br>Nasr<span>.</span></h1>
-      <p class="lede">AI &amp; Data Engineering student building<br><span class="rot" id="rot" aria-live="polite">RAG systems</span></p>
+      <h1>Ranim<br>Nasr<span>.</span></h1>
+      <p class="lede">AI &amp; Data Engineering student building<br>
+        <span class="sr-only">RAG systems, AI agents, explainable medical AI and reliable data pipelines.</span>
+        <span class="rot" id="rot" aria-hidden="true"><span class="on">RAG systems</span><span>AI agents</span><span>explainable medical AI</span><span>reliable data pipelines</span></span>
+      </p>
       <p class="sub">Final year at ENET'Com Sfax · Two AI engineering internships · Looking for a PFE in France or internationally.</p>
       <div class="ctas">
         <a class="pill lime" href="#projects">See selected work
@@ -336,23 +374,24 @@ footer nav{padding:0;gap:24px}
     <div class="proj-head">
       <div>
         <div class="eyebrow">Selected work</div>
-        <h2 class="h2">Projects across AI and data.</h2>
+        <h2 class="h2">Medical AI, agents and data systems.</h2>
       </div>
       <a class="pill" href="https://github.com/ranimnsr">All repositories on GitHub ↗</a>
     </div>
     <div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
-    <div class="pgrid" id="pgrid"></div>
+    <div class="feat" id="feat"></div>
+    <div class="plist" id="plist"></div>
   </section>
 
   <section id="skills" class="wrap section">
     <div class="eyebrow">Stack</div>
     <h2 class="h2">The tools I've shipped with.</h2>
     <div class="skills">
-      <div><div class="k">AI engineering</div><p>RAG · LLMs · LangChain · LangGraph · Tool calling · XAI · Ontology engineering</p></div>
-      <div><div class="k">Machine learning</div><p>Python · PyTorch · Scikit-learn · XGBoost · NLP · Computer vision</p></div>
-      <div><div class="k">Data &amp; retrieval</div><p>SQL · ChromaDB · Vector search · ETL/ELT · Data quality</p></div>
-      <div><div class="k">MLOps</div><p>MLflow · RAGAS · FastAPI · Docker · CI/CD</p></div>
-      <div><div class="k">Delivery &amp; BI</div><p>Streamlit · Gradio · Power BI · DAX · n8n</p></div>
+      <div><div class="k">AI engineering</div><div class="tags"><span class="tag">RAG</span><span class="tag">LLMs</span><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">Tool calling</span><span class="tag">XAI</span><span class="tag">Ontologies</span></div></div>
+      <div><div class="k">Machine learning</div><div class="tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Scikit-learn</span><span class="tag">XGBoost</span><span class="tag">NLP</span><span class="tag">Computer vision</span></div></div>
+      <div><div class="k">Data &amp; retrieval</div><div class="tags"><span class="tag">SQL</span><span class="tag">ChromaDB</span><span class="tag">Vector search</span><span class="tag">ETL / ELT</span><span class="tag">Data quality</span></div></div>
+      <div><div class="k">MLOps</div><div class="tags"><span class="tag">MLflow</span><span class="tag">RAGAS</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">CI/CD</span></div></div>
+      <div><div class="k">Delivery &amp; BI</div><div class="tags"><span class="tag">Streamlit</span><span class="tag">Gradio</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">n8n</span></div></div>
     </div>
   </section>
 
@@ -383,12 +422,14 @@ footer nav{padding:0;gap:24px}
     <div class="cta">
       <div class="cta-main">
         <div class="mono" style="font-size:13px">Contact</div>
-        <h2>Hiring a PFE intern for 2027?</h2>
+        <h2>Let's build useful AI together.</h2>
         <p>Open to AI engineering internships in France or internationally, and to technical conversations on applied AI, retrieval and explainability.</p>
       </div>
       <div class="cta-side">
         <div class="email-row">
-          <span class="email" id="email">ranimnasr2017@gmail.com</span>
+          <a class="email" href="mailto:ranimnasr2017@gmail.com">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
+            ranimnasr2017@gmail.com</a>
           <button class="cbtn" id="copyBtn" type="button" aria-label="Copy email address">Copy</button>
         </div>
         <a class="cbtn" href="https://www.linkedin.com/in/ranim-nasr-54ba0331a/">Connect on LinkedIn</a>
@@ -397,7 +438,7 @@ footer nav{padding:0;gap:24px}
     </div>
     <footer>
       <span>© 2026 Ranim Nasr · Sfax, Tunisia</span>
-      <nav aria-label="Footer" style="display:flex;flex-wrap:wrap">
+      <nav class="foot-links" aria-label="Footer">
         <a href="https://www.linkedin.com/in/ranim-nasr-54ba0331a/">LinkedIn</a>
         <a href="https://github.com/ranimnsr">GitHub</a>
         <a href="#top">Back to top ↑</a>
@@ -409,29 +450,56 @@ footer nav{padding:0;gap:24px}
 <script>
 (function(){
   var root = document.documentElement;
+
+  /* theme toggle: icon shows the theme you will switch to */
+  var themeBtn = document.getElementById('themeBtn'), sun = document.getElementById('icoSun'), moon = document.getElementById('icoMoon');
   function isDark(){
     var t = root.getAttribute('data-theme');
     if (t) return t === 'dark';
     return !(window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches);
   }
-  var themeBtn = document.getElementById('themeBtn');
-  function syncThemeLabel(){ themeBtn.setAttribute('aria-label', isDark() ? 'Switch to light theme' : 'Switch to dark theme'); }
-  themeBtn.addEventListener('click', function(){ root.setAttribute('data-theme', isDark() ? 'light' : 'dark'); syncThemeLabel(); });
-  syncThemeLabel();
+  function syncTheme(){
+    var d = isDark();
+    sun.hidden = !d; moon.hidden = d;
+    themeBtn.setAttribute('aria-label', d ? 'Switch to light theme' : 'Switch to dark theme');
+  }
+  themeBtn.addEventListener('click', function(){
+    root.setAttribute('data-theme', isDark() ? 'light' : 'dark');
+    try { localStorage.setItem('theme', root.getAttribute('data-theme')); } catch(e){}
+    syncTheme();
+  });
+  try { var saved = localStorage.getItem('theme'); if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved); } catch(e){}
+  syncTheme();
+  if (window.matchMedia) { try { window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', syncTheme); } catch(e){} }
 
+  /* phone menu */
   var menuBtn = document.getElementById('menuBtn'), menu = document.getElementById('mobileMenu');
   function setMenu(open){ menu.hidden = !open; menuBtn.setAttribute('aria-expanded', open); menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); }
   menuBtn.addEventListener('click', function(){ setMenu(menu.hidden); });
   menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
 
+  /* rotating word: fixed-width box, hidden from screen readers */
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var words = ['RAG systems','AI agents','explainable medical AI','reliable data pipelines'];
-  var rot = document.getElementById('rot'), wi = 0;
+  var rotWords = document.querySelectorAll('#rot > span'), wi = 0;
   if (!reduce) setInterval(function(){
-    rot.style.opacity = 0;
-    setTimeout(function(){ wi = (wi+1) % words.length; rot.textContent = words[wi]; rot.style.opacity = 1; }, 250);
+    rotWords[wi].classList.remove('on');
+    wi = (wi + 1) % rotWords.length;
+    rotWords[wi].classList.add('on');
   }, 2600);
 
+  /* active section in nav */
+  var navLinks = document.querySelectorAll('.navlinks a.l');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        navLinks.forEach(function(a){ a.setAttribute('aria-current', a.getAttribute('href') === '#' + en.target.id ? 'true' : 'false'); });
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    ['profile','experience','projects','skills','contact'].forEach(function(id){ var el = document.getElementById(id); if (el) io.observe(el); });
+  }
+
+  /* how I work */
   var steps = [
     ['01','Prepare data','ETL, feature engineering, data quality','KPI Dashboard, HealthPath'],
     ['02','Design retrieval','Embeddings, vector search, RAG','ELYOS banking assistant'],
@@ -451,35 +519,38 @@ footer nav{padding:0;gap:24px}
     stepsEl.appendChild(b);
   });
 
-  var gh = 'https://github.com/ranimnsr/';
+  /* projects */
+  var gh = 'https://github.com/ranimnsr/', li = 'https://www.linkedin.com/in/ranim-nasr-54ba0331a/';
   var projects = [
-    {id:'pulmo',cats:['medical'],kicker:'Medical AI · Academic',title:'PulmoVision-XAI',short:'Explainable pneumonia screening from chest X-rays.',
-     long:'A deep-learning classifier with Grad-CAM visual evidence so clinicians can see why the model decided, an ontology layer for medical knowledge, and a deployable inference workflow.',
+    {id:'pulmo',featured:true,cats:['medical'],kicker:'Medical AI · Academic project',title:'PulmoVision-XAI',
+     desc:'Explainable pneumonia screening from chest X-rays. A deep-learning classifier paired with Grad-CAM visual evidence, so clinicians can see which regions drove each prediction, plus an ontology layer for medical knowledge and a deployable inference workflow.',
+     flow:['Chest X-ray','CNN classifier','*Grad-CAM evidence','Ontology','Report'],
      tags:['Deep learning','Grad-CAM','Ontology'],links:[['Code on GitHub ↗',gh+'pulmovision-xai']]},
-    {id:'bank',cats:['agents'],kicker:'Agentic AI · ELYOS Digital',title:'Agentic Banking Assistant',short:'Fraud detection and decision support for banking teams.',
-     long:'Combines multilingual RAG, LLM tool calling and an ML fraud-scoring model, orchestrated with LangGraph and a human-in-the-loop review step. Evaluated with RAGAS and tracked in MLflow. Built during an internship, so the code is private.',
-     tags:['RAG','LangGraph','RAGAS','MLflow'],links:[['Ask on LinkedIn ↗','https://www.linkedin.com/in/ranim-nasr-54ba0331a/']]},
-    {id:'densenet',cats:['medical'],kicker:'Computer vision',title:'DenseNet121-CBAM Chest X-Ray',short:'Multi-label disease detection with attention.',
-     long:'A DenseNet121 backbone with CBAM attention modules that sharpen feature focus and diagnostic signal across multiple chest diseases.',
-     tags:['Deep learning','DenseNet121','CBAM'],links:[['Code on GitHub ↗',gh+'chest-xray-densenet-cbam']]},
-    {id:'health',cats:['ml','medical'],kicker:'Healthcare ML · 24h hackathon',title:'HealthPath',short:'Diabetes risk prediction and prevention.',
-     long:'Built in 24 hours: predicts diabetes risk, identifies patient profiles and supports personalized prevention recommendations.',
-     tags:['Machine learning','Risk prediction','Hackathon'],links:[['Code on GitHub ↗',gh+'diabetes-risk-prediction']]},
-    {id:'supply',cats:['agents','data'],kicker:'NLP agent · SARTEX Group',title:'Supply Chain AI Agent',short:'Automated order analysis and reporting.',
-     long:'An NLP agent plus a Python and n8n pipeline automating order analysis, inventory verification, lead-time assessment and reporting. Built during an internship, so the code is private.',
-     tags:['NLP','Python','n8n'],links:[['Ask on LinkedIn ↗','https://www.linkedin.com/in/ranim-nasr-54ba0331a/']]},
-    {id:'kpi',cats:['data'],kicker:'Business intelligence',title:'Enterprise KPI Dashboard',short:'Real-time KPI monitoring in Power BI.',
-     long:'An interactive Power BI system centralizing SQL and Excel data for real-time KPI monitoring and business decisions.',
-     tags:['Power BI','DAX','SQL'],links:[['Ask on LinkedIn ↗','https://www.linkedin.com/in/ranim-nasr-54ba0331a/']]},
-    {id:'edu',cats:['ml'],kicker:'EdTech',title:'Smart Education',short:'Intelligent software for personalized learning.',
-     long:'Explores how intelligent software can support learning, discovery and more personalized educational experiences.',
-     tags:['EdTech','Applied AI'],links:[['Code on GitHub ↗',gh+'smart_education']]}
+    {id:'bank',featured:true,cats:['agents'],kicker:'Agentic AI · ELYOS Digital internship',title:'Agentic Banking Assistant',
+     desc:'Fraud detection and decision support for banking teams. Multilingual RAG and LLM tool calling feed an ML fraud-scoring model, orchestrated with LangGraph and a human-in-the-loop review step. Evaluated with RAGAS, tracked in MLflow.',
+     flow:['User query','Multilingual RAG','*LangGraph agent','Fraud model','Human review'],
+     tags:['RAG','LangGraph','RAGAS','MLflow'],links:[['Ask about it on LinkedIn ↗',li]]},
+    {id:'densenet',cats:['medical'],kicker:'Computer vision',title:'DenseNet121-CBAM Chest X-Ray',
+     desc:'Multi-label chest disease detection with CBAM attention to sharpen feature focus.',
+     tags:['Deep learning','DenseNet121','CBAM'],links:[['Code ↗',gh+'chest-xray-densenet-cbam']]},
+    {id:'health',cats:['ml','medical'],kicker:'Healthcare ML · 24h hackathon',title:'HealthPath',
+     desc:'Diabetes risk prediction, patient profiling and personalized prevention, built in 24 hours.',
+     tags:['Machine learning','Risk prediction'],links:[['Code ↗',gh+'diabetes-risk-prediction']]},
+    {id:'supply',cats:['agents','data'],kicker:'NLP agent · SARTEX internship',title:'Supply Chain AI Agent',
+     desc:'NLP agent plus Python and n8n pipeline for order analysis, inventory checks, lead times and reporting.',
+     tags:['NLP','Python','n8n'],links:[['Ask ↗',li]]},
+    {id:'kpi',cats:['data'],kicker:'Business intelligence',title:'Enterprise KPI Dashboard',
+     desc:'Power BI system centralizing SQL and Excel data for real-time KPI monitoring.',
+     tags:['Power BI','DAX','SQL'],links:[['Ask ↗',li]]},
+    {id:'edu',cats:['ml'],kicker:'EdTech',title:'Smart Education',
+     desc:'Intelligent software supporting learning, discovery and personalized education.',
+     tags:['EdTech','Applied AI'],links:[['Code ↗',gh+'smart_education']]}
   ];
   var filters = [['all','All'],['agents','GenAI & agents'],['medical','Medical AI'],['ml','Machine learning'],['data','Data & BI']];
-  var active = 'all', open = null;
-  var fEl = document.getElementById('filters'), gEl = document.getElementById('pgrid');
-
+  var active = 'all';
+  var fEl = document.getElementById('filters'), featEl = document.getElementById('feat'), listEl = document.getElementById('plist');
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function tagsHtml(t){ return '<div class="tags">'+t.map(function(x){ return '<span class="tag">'+esc(x)+'</span>'; }).join('')+'</div>'; }
 
   function renderFilters(){
     fEl.innerHTML = '';
@@ -488,37 +559,41 @@ footer nav{padding:0;gap:24px}
       var b = document.createElement('button');
       b.type='button'; b.className='filter'; b.setAttribute('aria-pressed', f[0]===active ? 'true':'false');
       b.innerHTML = esc(f[1]) + '<small>' + n + '</small>';
-      b.addEventListener('click', function(){ active = f[0]; renderFilters(); renderGrid(); });
+      b.addEventListener('click', function(){ active = f[0]; renderFilters(); renderProjects(); });
       fEl.appendChild(b);
     });
   }
-  function renderGrid(){
-    gEl.innerHTML = '';
-    projects.filter(function(p){ return active==='all' || p.cats.indexOf(active)>=0; }).forEach(function(p){
+  function renderProjects(){
+    var shown = projects.filter(function(p){ return active==='all' || p.cats.indexOf(active)>=0; });
+    featEl.innerHTML = shown.filter(function(p){ return p.featured; }).map(function(p){
+      var flow = p.flow.map(function(n, i){
+        var key = n.charAt(0) === '*'; var label = key ? n.slice(1) : n;
+        return '<li><span class="node'+(key?' key':'')+'">'+esc(label)+'</span>'+(i < p.flow.length-1 ? '<span class="arrow" aria-hidden="true">→</span>' : '')+'</li>';
+      }).join('');
+      return '<article class="fcard"><div class="top"><span>'+esc(p.kicker)+'</span><span class="star">Featured</span></div>'+
+        '<h3>'+esc(p.title)+'</h3><p>'+esc(p.desc)+'</p>'+
+        '<ol class="flow" aria-label="How it works">'+flow+'</ol>'+
+        tagsHtml(p.tags)+
+        '<div class="links">'+p.links.map(function(l){ return '<a href="'+esc(l[1])+'">'+esc(l[0])+'</a>'; }).join('')+'</div></article>';
+    }).join('');
+    listEl.innerHTML = shown.filter(function(p){ return !p.featured; }).map(function(p){
       var idx = projects.indexOf(p) + 1;
-      var isOpen = p.id === open;
-      var a = document.createElement('article');
-      a.className = 'proj' + (isOpen ? ' open' : '');
-      a.innerHTML =
-        '<div class="top"><span>'+esc(p.kicker)+'</span><span class="num">'+(idx<10?'0':'')+idx+'</span></div>'+
-        '<h3>'+esc(p.title)+'</h3><p>'+esc(p.short)+'</p>'+
-        '<div class="tags">'+p.tags.map(function(t){ return '<span class="tag">'+esc(t)+'</span>'; }).join('')+'</div>'+
-        '<button class="toggle" type="button" aria-expanded="'+isOpen+'" aria-controls="more-'+p.id+'"><span>'+(isOpen?'Hide details':'Details')+'</span><span aria-hidden="true" class="mono" style="font-size:18px">'+(isOpen?'−':'+')+'</span></button>'+
-        '<div class="more" id="more-'+p.id+'"'+(isOpen?'':' hidden')+'><p>'+esc(p.long)+'</p><div class="links">'+
-          p.links.map(function(l){ return '<a href="'+esc(l[1])+'">'+esc(l[0])+'</a>'; }).join('')+'</div></div>';
-      a.querySelector('.toggle').addEventListener('click', function(){ open = isOpen ? null : p.id; renderGrid(); });
-      gEl.appendChild(a);
-    });
+      return '<article class="prow"><span class="num">'+(idx<10?'0':'')+idx+'</span>'+
+        '<div><span class="kick">'+esc(p.kicker)+'</span><h3 class="ttl" style="margin:0">'+esc(p.title)+'</h3></div>'+
+        '<div class="desc">'+esc(p.desc)+tagsHtml(p.tags)+'</div>'+
+        '<a class="go" href="'+esc(p.links[0][1])+'" aria-label="'+esc(p.links[0][0].replace(' ↗','')+': '+p.title)+'">'+esc(p.links[0][0])+'</a></article>';
+    }).join('');
   }
-  renderFilters(); renderGrid();
+  renderFilters(); renderProjects();
 
-  var copyBtn = document.getElementById('copyBtn'), emailEl = document.getElementById('email'), ct;
+  /* copy email */
+  var copyBtn = document.getElementById('copyBtn'), ct;
   function done(label){ copyBtn.textContent = label; clearTimeout(ct); ct = setTimeout(function(){ copyBtn.textContent = 'Copy'; }, 1800); }
-  function selectEmail(){ var r = document.createRange(); r.selectNodeContents(emailEl); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
   copyBtn.addEventListener('click', function(){
-    try {
-      navigator.clipboard.writeText('ranimnasr2017@gmail.com').then(function(){ done('Copied ✓'); }, function(){ selectEmail(); done('Selected'); });
-    } catch(e){ selectEmail(); done('Selected'); }
+    var fallback = function(){
+      var r = document.createRange(); r.selectNodeContents(document.querySelector('.email')); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done('Selected');
+    };
+    try { navigator.clipboard.writeText('ranimnasr2017@gmail.com').then(function(){ done('Copied ✓'); }, fallback); } catch(e){ fallback(); }
   });
 })();
 </script>
